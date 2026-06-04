@@ -88,7 +88,7 @@ Place Everywhere uses F2 (ground snapping) and F3 (grid snapping) in Workshop mo
 | Quick load | `F9` |
 | Screenshot | `PrtScn` / `F12` |
 | Wait | `T` |
-| Open console | `` ` `` (tilde) |
+| Open console | `` ~ `` (tilde) or `` @ `` (at)|
 
 ---
 
