@@ -1,19 +1,28 @@
 # Fallout 4 Hotkey Reference
 
 A reference for default Fallout 4 PC keybindings alongside hotkeys added by
-[Place Everywhere](https://www.nexusmods.com/fallout4/mods/9424) and
-[FO4 Hotkeys](https://www.nexusmods.com/fallout4/mods/11664).
+[Place Everywhere](https://www.nexusmods.com/fallout4/mods/9424),
+[FO4 Hotkeys](https://www.nexusmods.com/fallout4/mods/11664),
+[F4Settings](https://www.nexusmods.com/fallout4/mods/105617), and
+[P71 In Game Shop Mod Explorer](https://www.nexusmods.com/fallout4/mods/56922).
 
-> **PC only.** Place Everywhere and FO4 Hotkeys are F4SE plugins — console platforms are not supported.
+> **PC only.** Place Everywhere, FO4 Hotkeys, F4Settings, and P71 are F4SE plugins - console platforms are not supported.
 
 ---
 
-## ⚠️ Known conflict: F2 and F3
+## ⚠️ Known conflicts
 
-FO4 Hotkeys ships with F2 (toggle menus) and F3 (toggle flycam) bound by default.
-Place Everywhere uses F2 (ground snapping) and F3 (grid snapping) in Workshop mode.
+| Key | Default FO4 | Place Everywhere | FO4 Hotkeys | F4Settings | P71 |
+|---|---|---|---|---|---|
+| `F2` | - | Ground & surface snapping | Toggle menus ⚠️ | - | - |
+| `F3` | - | Workshop grid snapping | Toggle flycam ⚠️ | - | - |
+| `F9` | Quick load | - | - | Open / close UI ⚠️ | - |
+| `F10` | - | - | - | - | Open UI ⚠️ *(hardcoded)* |
 
-**Fix:** remap either mod. In FO4 Hotkeys, edit `Data\Hotkeys.ini`. In Place Everywhere, edit `Data\F4SE\Plugins\place.ini`.
+**Fixes:**
+- F2 / F3: remap FO4 Hotkeys in `Data\Hotkeys.ini`, or Place Everywhere in `Data\F4SE\Plugins\place.ini`
+- F9: remap F4Settings in `Data\F4SE\Plugins\F4Settings\F4Settings.json` - set `hotkeyScanCode` to `62` (`F4`)
+- F10: hardcoded in P71 - cannot be remapped; avoid assigning F10 in other mods
 
 ---
 
@@ -85,10 +94,10 @@ Place Everywhere uses F2 (ground snapping) and F3 (grid snapping) in Workshop mo
 | Action | Key |
 |---|---|
 | Quick save | `F5` *(disabled in Workshop mode)* |
-| Quick load | `F9` |
+| Quick load | `F9` ⚠️ *conflicts with F4Settings default* |
 | Screenshot | `PrtScn` / `F12` |
 | Wait | `T` |
-| Open console | `` ~ `` (tilde) or `` @ `` (at)|
+| Open console | `` ` `` / `~` / `@` *(key varies by keyboard region)* |
 
 ---
 
@@ -106,7 +115,7 @@ Place Everywhere uses F2 (ground snapping) and F3 (grid snapping) in Workshop mo
 | Toggle object snapping | `F1` *(cancel current selection first)* |
 | Toggle ground & surface snapping | `F2` ⚠️ *conflicts with FO4 Hotkeys default* |
 | Toggle workshop grid snapping | `F3` ⚠️ *conflicts with FO4 Hotkeys default* |
-| Toggle out-of-workshop timeout | `F5` *(Quick Save is disabled in Workshop mode — no real conflict)* |
+| Toggle out-of-workshop timeout | `F5` *(Quick Save is disabled in Workshop mode - no real conflict)* |
 | Toggle store clamped objects on scrap | `F6` |
 | Lock / unlock highlighted object | `F7` |
 | Toggle extra objects selection | `Ins` |
@@ -212,6 +221,50 @@ hotkey Z hot 1         ; bind Z to Hotkey Manager slot 1
 hotkey F2              ; unbind F2
 ```
 
+## F4Settings
+
+[Nexus page](https://www.nexusmods.com/fallout4/mods/105617) · by PatrickJnr · requires F4SE + PrismaUI F4
+
+An in-game settings manager overlay. Browse globals, change weather, teleport to cells and workshops, control time, and run cheats - all from one UI.
+
+> Hotkey applies globally (not just in Workshop mode). Configurable in `Data\F4SE\Plugins\F4Settings\F4Settings.json`.
+
+### Default bindings
+
+| Action | Key | Scan code |
+|---|---|---|
+| Open / close UI | `F9` ⚠️ *conflicts with default Quick Load* | `0x43` (67) |
+| Close UI | `Esc` | `0x01` |
+| Cycle favourite weather (next) | `↓` Down Arrow | `0xD0` |
+| Cycle favourite weather (prev) | `↑` Up Arrow | `0xC8` |
+
+### Remapping
+
+Edit `F4Settings.json` and set `hotkeyScanCode` to the DirectInput scan code of your preferred key. Set to `0` to disable.
+
+| Recommended alternative | Key | Scan code (hex) | Scan code (decimal) |
+|---|---|---|---|
+| **Recommended** | `F4` | `0x3E` | `62` |
+| ~~`F10`~~ | ~~`F10`~~ | ~~`0x44`~~ | ~~`68`~~ - hardcoded by P71, avoid |
+
+> `F4` is unbound across all mods in this reference and stays in the F-key row for muscle memory.
+
 ---
 
-*Maintained by [Viable Dahlia](https://www.nexusmods.com/profile/viabledahlia) · [commonwealth-tools](https://github.com/ViableDahlia/commonwealth-tools) · CC BY 4.0*
+## P71 In Game Shop Mod Explorer
+
+[Nexus page](https://www.nexusmods.com/fallout4/mods/56922) · by perchik71 · requires F4SE + MCM
+
+An in-game ESP/ESM/ESL item browser - get items from plugins without using the console.
+
+> ⚠️ **F10 is hardcoded** and cannot be remapped via MCM despite what the MCM UI may show - it resets to F10 on new games. Avoid binding F10 in any other mod.
+
+### Default bindings
+
+| Action | Key | Notes |
+|---|---|---|
+| Open UI | `F10` | Hardcoded - cannot be permanently remapped |
+
+---
+
+*Maintained by [Viable Dahlia](https://www.nexusmods.com/profile/viabledahlia) · [fallout4-docs](https://github.com/ViableDahlia/fallout4-docs) · CC BY 4.0*
